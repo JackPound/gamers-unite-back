@@ -10,7 +10,7 @@ router.get('/games', function(req, res){
 })
 
 router.get('/games/:id', function(req, res){
-	Game.find({id: req.params.id}, function(err, game){
+	Game.find({_id: req.params.id}, function(err, game){
 		res.json(game);
 	})
 })

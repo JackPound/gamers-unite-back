@@ -7,10 +7,9 @@ var gameSchema = new mongoose.Schema({
 		width: Number,
 		height: Number
 	},
-	genres: [Number],
-	id: Number,
+	genres: [String],
 	name: String,
-	platforms: [Number],
+	platform: String,
 	summary: String
 });
 
