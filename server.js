@@ -1,5 +1,5 @@
- require('dotenv').config();
-
+require('dotenv').config();
+var cors = require('cors')
 var mongoose = require('mongoose')
 var express = require('express');
 var expressJWT = require('express-jwt');
@@ -7,13 +7,13 @@ var bodyParser = require('body-parser');
 var app = express();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3')
+
 app.use(bodyParser.json());
+app.use(cors())
 
-let port = process.env.PORT || 3000;
-
-
+// Routes for games/single game
 app.use('/api/v1', require('./controllers/games'))
-
+// Routes for login/signup
 app.use('/auth', expressJWT({
 	secret: process.env.JWT_SECRET,
 	getToken: function fromRequest(req) {
@@ -29,9 +29,8 @@ app.use('/auth', expressJWT({
 	{url: '/auth/signup', methods: ['POST']}
 	]
 }), require('./controllers/auth'));
-
-
-
+// Listening on a port 
+let port = process.env.PORT || 3000;
 app.listen(port, function() {
 	console.log(`Listening PORT: ${ port }`);
 });

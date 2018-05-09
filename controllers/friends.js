@@ -10,7 +10,7 @@ router.get('/users', function(req, res){
 })
 
 router.get('/users/:id', function(req, res){
-	User.find({id: req.params.id}, function(err, user){
+	User.find({_id: req.params.id}, function(err, user){
 		res.json(user);
 	})
 })
