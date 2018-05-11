@@ -5,13 +5,13 @@ var Game = require('../models/Game');
 
 router.get('/games', function(req, res){
 	Game.find({}, function(err, games){
-		res.json(games);
+		res.send(games);
 	})
 })
 
 router.get('/games/:id', function(req, res){
 	Game.find({_id: req.params.id}, function(err, game){
-		res.json(game);
+		res.send(game);
 	})
 })
 

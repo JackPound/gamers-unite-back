@@ -1,14 +1,15 @@
 require('dotenv').config();
+var bodyParser = require('body-parser');
 var cors = require('cors')
-var mongoose = require('mongoose')
 var express = require('express');
 var expressJWT = require('express-jwt');
-var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var app = express();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3')
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors())
 
 // Routes for games/single game
