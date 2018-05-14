@@ -16,3 +16,7 @@ router.get('/games/:id', function(req, res){
 })
 
 module.exports = router;
+
+
+
+user/;id/trips
