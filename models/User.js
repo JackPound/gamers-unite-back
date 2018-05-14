@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
-
+var Game = require('./Game');
+const Schema = mongoose.Schema;
 var userSchema = new mongoose.Schema({
 	username: {
 		type: String, 
@@ -24,7 +25,7 @@ var userSchema = new mongoose.Schema({
 	gender: String,
 	language: [String],
 	prefTime: [Number],
-	playedGames: [], // TODO : REFRENCE GAME SCHEMA + STRUCTURE SKILL LEVEL
+	playedGames: [{type: Schema.Types.ObjectId, ref: 'Game'}], // TODO : REFRENCE GAME SCHEMA + STRUCTURE SKILL LEVEL
 	friends: [String],
 	avoidedPlayers: [String],
 	activeNow: Boolean
