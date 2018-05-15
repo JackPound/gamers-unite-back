@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var router = express.Router();
 var Game = require('../models/Game');
 var User = require('../models/User');
+var random = require('mongoose-simple-random');
 
 function arrayContains(item, inArray){
 	return(inArray.indexOf(item) > -1);
@@ -29,4 +30,5 @@ router.get('/:id/games', function(req, res){
 		res.send(myGames)
 	})
 })
+router.get('/random')
 module.exports = router;

@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var Game = require('./Game');
-const Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
+var random = require('mongoose-simple-random');
+
 var userSchema = new mongoose.Schema({
 	username: {
 		type: String, 
@@ -60,6 +62,7 @@ userSchema.pre('save', function(next) {
 	next();
 })
 
-
+userSchema.plugin(random)
 var User = mongoose.model('User', userSchema);
+
 module.exports = User; 

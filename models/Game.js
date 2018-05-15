@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var random = require('mongoose-simple-random');
 
 var gameSchema = new mongoose.Schema({
 	cover: {
@@ -12,6 +13,8 @@ var gameSchema = new mongoose.Schema({
 	platform: String,
 	summary: String
 });
+
+gameSchema.plugin(random);
 
 var Game = mongoose.model('Game', gameSchema);
 module.exports = Game; 
