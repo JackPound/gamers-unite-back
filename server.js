@@ -6,7 +6,7 @@ var expressJWT = require('express-jwt');
 var mongoose = require('mongoose');
 var app = express();
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3');
 
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -14,6 +14,8 @@ app.use(cors())
 
 // Routes for games/single game
 app.use('/api/v1', require('./controllers/games'))
+
+app.use('/users', require('./controllers/users'))
 // Routes for login/signup
 app.use('/auth', expressJWT({
 	secret: process.env.JWT_SECRET,
