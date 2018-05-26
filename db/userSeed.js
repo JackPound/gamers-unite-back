@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
 
-mongoose.connect('mongodb://localhost/project3')
+mongoose.connect('mongodb://heroku_c23d3bwq:2osgmiemi73bp8j4pkqfca7o9o@ds123790.mlab.com:23790/heroku_c23d3bwq')
 
 
 
 const seedUsers = () => {
 	const Users = [
-		
-		{username: 'braindeadTmate', email: '9@9.com', password: 12341234, playedGames: ['5af9d516ef975074549a1902', '5af9d516ef975074549a1906', '5af9d516ef975074549a1903', '5af9d516ef975074549a1904', '5af9d516ef975074549a1905', '5af9d516ef975074549a1909', '5af9d516ef975074549a1907', '5af9d516ef975074549a190b', '5af9d516ef975074549a1908', '5af9d516ef975074549a190a', '5af9d516ef975074549a190e', '5af9d516ef975074549a190c', '5af9d516ef975074549a190d', '5af9d516ef975074549a190f']}
+		{username: 'anotherP', email: '1@1.com', password: 12341234, playedGames: ['5b099958a7cd504eace05927','5b099958a7cd504eace05928','5b099958a7cd504eace05929','5b099958a7cd504eace0592b','5b099958a7cd504eace0592c','5b099958a7cd504eace0592a','5b099958a7cd504eace0592e','5b099958a7cd504eace05930','5b099958a7cd504eace0592f','5b099958a7cd504eace05932','5b099958a7cd504eace05933','5b099958a7cd504eace05931','5b099958a7cd504eace05934']}
 	];
 	Users.forEach((user) => {
 		User.create(user);
