@@ -16,10 +16,10 @@ router.get('/games/:id', function(req, res){
 	})
 })
 
-// NEEED TO PASS USER ID HERE TO POST TO LOGGED IN USERß
 router.post('/games/:id', function(req, res){	
 	User.findByIdAndUpdate(
-		'5afa67e6355216849d45a319',
+// NEEED TO PASS USER ID HERE TO POST TO LOGGED IN USER CURRENTLY IS JUST GIVING A HARD CODE USER GAMES REGARDLESS OF WHO IS LOGGED IN
+		'5b09bef0201339000421096f',
 		{$push: {'playedGames': req.params.id}},
 		{safe: true, upsert: false, new: true},
 		function(err, model){
