@@ -4,6 +4,7 @@ var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var router = express.Router();
 var User = require('../models/User');
+var cors = require('cors');
 
 // POST route to login to existing User, returns JWT
 router.post('/login', function(req,res){
@@ -26,7 +27,7 @@ router.post('/login', function(req,res){
 });
 
 // POST route to signup a new User
-router.post('/signup', function(req,res){
+router.post('/signup', cors(), function(req,res){
 	User.findOne({ email: req.body.email })
 	.then(function(user){
 		if(user){
