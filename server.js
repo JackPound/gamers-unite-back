@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 var app = express();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3');
+// mongoose.connect('mongodb://localhost/project3');
 
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({extended: true}));

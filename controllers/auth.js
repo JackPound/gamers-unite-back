@@ -1,4 +1,4 @@
-require('dotenv').config();
+ require('dotenv').config();
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
@@ -25,7 +25,7 @@ router.post('/login', function(req,res){
 	})
 });
 
-// POST route to signup a new User 
+// POST route to signup a new User
 router.post('/signup', function(req,res){
 	User.findOne({ email: req.body.email })
 	.then(function(user){
