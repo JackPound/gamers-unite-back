@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3');
 
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors())
+app.use(cors());
 
 
 
@@ -20,7 +20,7 @@ app.use('/api/v1', require('./controllers/games'))
 
 app.use('/users', require('./controllers/users'))
 // Routes for login/signup
-app.use('/auth', expressJWT({
+app.use('/auth', cors(), expressJWT({
 	secret: process.env.JWT_SECRET,
 	getToken: function fromRequest(req) {
 		if(req.body.headers.Authorization &&
